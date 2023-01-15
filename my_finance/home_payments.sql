@@ -1,0 +1,59 @@
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
+--
+-- Host: localhost    Database: home
+-- ------------------------------------------------------
+-- Server version	5.5.12
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `payments`
+--
+
+DROP TABLE IF EXISTS `payments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `shop_id` int(11) DEFAULT NULL,
+  `good_id` int(11) DEFAULT NULL,
+  `quantity` float DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `shop_id` (`shop_id`),
+  KEY `good_id` (`good_id`),
+  CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`shop_id`) REFERENCES `shop` (`shop_id`),
+  CONSTRAINT `payments_ibfk_2` FOREIGN KEY (`good_id`) REFERENCES `goods` (`good_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `payments`
+--
+
+LOCK TABLES `payments` WRITE;
+/*!40000 ALTER TABLE `payments` DISABLE KEYS */;
+INSERT INTO `payments` VALUES (1,'2022-12-29',2,4,1,79),(2,'2022-12-29',1,1,1,23),(3,'2022-12-29',1,1,1,26),(4,'2022-12-29',1,3,2,14),(5,'2022-12-29',1,7,0.318,300),(6,'2022-12-30',1,5,1,84),(7,'2022-12-30',1,6,1,50),(8,'2022-12-31',3,2,1,448),(9,'2022-12-31',4,8,1,228),(10,'2022-12-29',1,9,1,6),(11,'2023-01-03',1,10,1,70),(12,'2023-01-04',1,1,1,25),(13,'2023-01-06',5,11,1,128),(14,'2023-01-06',1,12,1,90),(15,'2023-01-06',1,19,1,47),(16,'2023-01-06',1,9,1,6),(17,'2023-01-06',1,1,1,23),(18,'2023-01-06',1,13,1,55),(19,'2023-01-06',6,14,1,50),(20,'2023-01-06',6,17,1,60),(21,'2023-01-06',6,1,1,17),(22,'2023-01-06',6,15,1,50),(23,'2023-01-06',6,16,1,40),(24,'2023-01-06',6,18,3,27),(25,'2023-01-07',2,4,1,99),(26,'2023-01-07',6,14,2,50),(27,'2023-01-08',1,20,1,170),(28,'2023-01-09',6,14,2,50),(29,'2023-01-10',1,1,1,25),(30,'2023-01-10',1,6,1,50),(31,'2023-01-11',6,14,1,60),(32,'2023-01-11',7,22,1,45),(33,'2023-01-12',1,21,1,61),(34,'2023-01-12',1,19,1,68),(35,'2023-01-12',1,6,1,50),(36,'2023-01-12',1,13,1,58),(37,'2023-01-12',1,1,1,25),(38,'2023-01-14',1,1,1,29),(39,'2023-01-14',1,9,1,7),(40,'2023-01-14',1,1,1,25),(41,'2023-01-14',1,3,2,12);
+/*!40000 ALTER TABLE `payments` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-01-15 17:23:16
